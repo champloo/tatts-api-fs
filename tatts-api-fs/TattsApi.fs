@@ -2,12 +2,12 @@
 
 open System
 open System.Net
-open FSharpx
+open FSharp.Data
 
 open Util
 
 module RacingInformation =
-    type RacedayFeed = StructuredXml<Schema="""
+    type RacedayFeed = XmlProvider<"""
     <RaceDay RaceDayDate="2013-01-12T00:00:00" Year="2013" Month="1" Day="12" DayOfTheWeek="Saturday" MonthLong="January" IsCurrentDay="1" IsPresaleMeeting="0" ServerTime="2013-01-13T01:16:36.233">
       <PresaleRaceDate RaceDayDate="2013-01-13T00:00:00" Year="2013" Month="1" Day="12" DayOfTheWeek="Saturday" MonthLong="January" IsCurrentDay="1" IsPresaleMeeting="0" />
       <Meeting MeetingType="R" Abandoned="N" VenueName="Eagle Farm" SortOrder="0" HiRaceNo="8" NextRaceNo="1" MeetingCode="BR" MtgId="653525760">
@@ -26,7 +26,7 @@ module RacingInformation =
       </Meeting>
     </RaceDay>""">
 
-    type MeetingFeed = StructuredXml<Schema="""
+    type MeetingFeed = XmlProvider<"""
     <RaceDay RaceDayDate="2013-01-12T00:00:00" Year="2013" Month="1" Day="12" DayOfTheWeek="Saturday" MonthLong="January" IsCurrentDay="1" IsPresaleMeeting="0" ServerTime="2013-01-12T17:26:31.193">
       <Meeting MeetingCode="BR" MtgId="655622144" VenueName="Eagle Farm" MtgType="R" TrackDesc="Good" TrackCond="1" TrackRatingChanged="N" TrackRating="3" WeatherChanged="N" TrackChanged="N" WeatherCond="1" WeatherDesc="Fine" MtgAbandoned="N">
         <Pool PoolType="DD" PoolDisplayStatus="PAYING" Available="Y" Abandoned="N" JPotInGross="0.00" JPotOutGross="0.00" PoolTotal="12243.00">
@@ -66,7 +66,7 @@ module RacingInformation =
     </RaceDay>
     """>
 
-    type RaceFeed = StructuredXml<Schema="""
+    type RaceFeed = XmlProvider<"""
     <RaceDay RaceDayDate="2013-01-12T00:00:00" Year="2013" Month="1" Day="12" DayOfTheWeek="Saturday" MonthLong="January" IsCurrentDay="1" IsPresaleMeeting="0" ServerTime="2013-01-12T12:40:11.600">
       <Meeting MeetingCode="BR" MtgId="655622144" VenueName="Eagle Farm" MtgType="R" TrackDesc="Good" TrackCond="1" TrackRating="3" WeatherCond="1" WeatherDesc="Fine" MtgAbandoned="N">
         <Pool PoolType="DD" PoolDisplayStatus="SELLING" Available="Y" Abandoned="N" JPotInGross="0.00" JPotOutGross="0.00" PoolTotal="2854.00">
@@ -115,7 +115,7 @@ module RacingInformation =
     </RaceDay>
     """>
 
-    type ScratchingsFeed = StructuredXml<Schema="""
+    type ScratchingsFeed = XmlProvider<"""
     <RaceDay RaceDayDate="2013-01-19T00:00:00" Year="2013" Month="1" Day="19" DayOfTheWeek="Saturday" MonthLong="January" IsCurrentDay="1" IsPresaleMeeting="0" ServerTime="2013-01-20T00:55:36.030">
         <Meeting MeetingCode="BR" MtgId="653787136" VenueName="Eagle Farm" MtgType="R" MtgAbandoned="N" WeatherChanged="N" WeatherCond="1" WeatherDesc="Fine" TrackChanged="N" TrackCond="1" TrackDesc="Good" TrackRating="3" SortOrder="0">
         <Race RaceNo="2" Racetime="2013-01-19T13:00:00" Racename="NMW HANDICAP" RaceDisplayStatus="PAYING" WeatherChanged="N" WeatherCond="1" WeatherDesc="Fine" TrackChanged="N" TrackCond="1" TrackDesc="Good" TrackRating="3" ScratchingsFinal="Y">
@@ -124,7 +124,7 @@ module RacingInformation =
         </Meeting>
     </RaceDay>
     """>
-    type DoubleFeed = StructuredXml<Schema="""
+    type DoubleFeed = XmlProvider<"""
     <RaceDay RaceDayDate="2013-01-19T00:00:00" Year="2013" Month="1" Day="19" DayOfTheWeek="Saturday" MonthLong="January" IsCurrentDay="1" IsPresaleMeeting="0" ServerTime="2013-01-19T16:52:23.290">
       <Meeting MeetingCode="QR" MtgId="653787904" VenueName="Gold Coast" MtgType="R" TrackDesc="Good" TrackCond="1" TrackRating="3" WeatherCond="1" WeatherDesc="Fine" MtgAbandoned="N">
         <Pool PoolType="DD" PoolDisplayStatus="PAYING" Available="Y" Abandoned="N" JPotInGross="0.00" JPotOutGross="0.00" PoolTotal="4024.00">
@@ -162,7 +162,7 @@ module RacingInformation =
     </RaceDay>
     """>
 
-    type FieldFeed = StructuredXml<Schema="""
+    type FieldFeed = XmlProvider<"""
     <RaceDay RaceDayDate="2013-01-19T00:00:00" Year="2013" Month="1" Day="19" DayOfTheWeek="Saturday" MonthLong="January" IsCurrentDay="1" IsPresaleMeeting="0" ServerTime="2013-01-19T16:52:25.180">
       <Meeting MeetingCode="QR" MtgId="653787904" VenueName="Gold Coast" MtgType="R" TrackDesc="Good" TrackCond="1" TrackRatingChanged="0" TrackRating="3" WeatherCond="1" WeatherDesc="Fine" MtgAbandoned="N">
         <Pool PoolType="DD" PoolDisplayStatus="PAYING" Available="Y" Abandoned="N" JPotInGross="0.00" JPotOutGross="0.00" PoolTotal="4024.00">
@@ -209,19 +209,19 @@ module RacingInformation =
     let private loadField (date:DateTime) meetingId = load (buildUrl date (meetingId + "Fields"))
 
     let getRaceday date =
-        RacedayFeed(documentContent = loadRaceday date)
+        RacedayFeed.Parse(loadRaceday date)
 
     let getMeeting date meetingId =
-        MeetingFeed(documentContent = loadMeeting date meetingId)
+        MeetingFeed.Parse(loadMeeting date meetingId)
 
     let getRace date meetingId (raceNum:int) =
-        RaceFeed(documentContent = loadRace date meetingId raceNum)
+        RaceFeed.Parse(loadRace date meetingId raceNum)
 
     let getScratchings date =
-        ScratchingsFeed(documentContent = loadScratchings date)
+        ScratchingsFeed.Parse(loadScratchings date)
 
     let getDouble date meetingId =
-        DoubleFeed(documentContent = loadDouble date meetingId)
+        DoubleFeed.Parse(loadDouble date meetingId)
 
     let getField date meetingId =
-        FieldFeed(documentContent = loadField date meetingId)
+        FieldFeed.Parse(loadField date meetingId)
