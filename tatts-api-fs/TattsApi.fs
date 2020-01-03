@@ -109,7 +109,7 @@ module RacingInformation =
                 <Book BookStatus="F" SubEventId="1099597"/>
                 </FixedOdds>
             </Runner>
-            <Runner RunnerNo="1" RunnerName="MAGNUM" Scratched="N" ScratchStatus="1" Rider="A PATTILLO" RiderChanged="N" Barrier="1" Handicap="0" Weight="57.5" LastResult="1x2" Rtng="100"/>
+            <Runner RunnerNo="1" RunnerName="MAGNUM" Scratched="N" ScratchStatus="1" Rider="A PATTILLO" RiderChanged="N" Barrier="1" Handicap="0" Weight="57.5" LastResult="1x2"/>
             <SubFavCandidate RunnerNo="1"/>
             <Protest Protestor="1" Defendant="1" />
             <Photo PlaceGetter="1" />
