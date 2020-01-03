@@ -23,7 +23,9 @@ module RacingInformation =
           <FixedOdds HasFixedPrice="1" />
           <Pool PoolType="PP" Available="1" JPotInGross="0.0000" />
         </Race>
+        <Race RaceDisplayStatus="PAYING" RaceNo="1" RaceTime="2013-01-12T12:30:00" CloseTime="2013-01-12T12:30:43.787"/>
       </Meeting>
+      <Meeting MeetingType="R" Abandoned="N" VenueName="Eagle Farm" SortOrder="0" HiRaceNo="8" NextRaceNo="1" MeetingCode="BR" MtgId="653525760"/>
     </RaceDay>""">
 
     type MeetingFeed = XmlProvider<"""
@@ -107,6 +109,7 @@ module RacingInformation =
                 <Book BookStatus="F" SubEventId="1099597"/>
                 </FixedOdds>
             </Runner>
+            <Runner RunnerNo="1" RunnerName="MAGNUM" Scratched="N" ScratchStatus="1" Rider="A PATTILLO" RiderChanged="N" Barrier="1" Handicap="0" Weight="57.5" LastResult="122" Rtng="100"/>
             <SubFavCandidate RunnerNo="1"/>
             <Protest Protestor="1" Defendant="1" />
             <Photo PlaceGetter="1" />
