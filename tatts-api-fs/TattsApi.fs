@@ -102,14 +102,14 @@ module RacingInformation =
             <FixedPriceSummary>
                 <FixedPrice SportId="8" LeagueId="102" MeetingId="1246" MainEventId="166449" SubEventId="1099597" Status="F" BetTypeName="Win" EnablePlaceBetting="1"/>
             </FixedPriceSummary>
-            <Runner RunnerNo="1" RunnerName="MAGNUM" Scratched="N" ScratchStatus="1" Rider="A PATTILLO" RiderChanged="N" Barrier="1" Handicap="0" Weight="57.5" LastResult="1x2" Rtng="100">
+            <Runner RunnerNo="1" RunnerName="MAGNUM" Scratched="N" Rider="A PATTILLO" RiderChanged="N" Barrier="1" Handicap="0" Weight="57.5" LastResult="1x2" Rtng="100">
                 <WinOdds Odds="2.00" Lastodds="1.90" LastCalcTime="2013-01-19T13:26:43" CalcTime="2013-01-19T13:30:47" Short="N"/>
                 <PlaceOdds Odds="1.20" Lastodds="1.10" Short="N"/>
                 <FixedOdds OfferId="981252" RunnerNo="01" RaceNo="01" MeetingCode="QR" RaceDayDate="2013-01-19T00:00:00" WinOdds="2.2000" PlaceOdds="1.3000" RetailWinOdds="2.2000" RetailPlaceOdds="1.3000" OfferName="MAGNUM" Status="p" LateScratching="0" Deduction="0" PlaceDeduction="0">
                 <Book BookStatus="F" SubEventId="1099597"/>
                 </FixedOdds>
             </Runner>
-            <Runner RunnerNo="1" RunnerName="MAGNUM" Scratched="N" ScratchStatus="1" Rider="A PATTILLO" RiderChanged="N" Barrier="1" Handicap="0" Weight="57.5" LastResult="1x2"/>
+            <Runner RunnerNo="1" RunnerName="MAGNUM" Scratched="N" Rider="A PATTILLO" RiderChanged="N" Barrier="1" Handicap="0" Weight="57.5" LastResult="1x2"/>
             <SubFavCandidate RunnerNo="1"/>
             <Protest Protestor="1" Defendant="1" />
             <Photo PlaceGetter="1" />
