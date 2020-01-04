@@ -1,0 +1,47 @@
+<RaceDay RaceDayDate="2013-01-12T00:00:00" Year="2013" Month="1" Day="12" DayOfTheWeek="Saturday" MonthLong="January" IsCurrentDay="1" IsPresaleMeeting="0" ServerTime="2013-01-12T12:40:11.600">
+    <Meeting MeetingCode="BR" MtgId="655622144" VenueName="Eagle Farm" MtgType="R" TrackDesc="Good" TrackCond="1" TrackRating="3" WeatherCond="1" WeatherDesc="Fine" MtgAbandoned="N">
+        <Pool PoolType="DD" PoolDisplayStatus="SELLING" Available="Y" Abandoned="N" JPotInGross="0.00" JPotOutGross="0.00" PoolTotal="2854.00">
+            <MultiLeg LegNo="1" RaceNo="7">
+                <DividendResult RunnerNo="3" DivAmount="10.60" DivId="65785769" />
+            </MultiLeg>
+            <Dividend DivId="1" DivAmount="1">
+                <DivResult RunnerNo="1" LegNo="1" RaceNo="1">DivResult1</DivResult>
+            </Dividend>
+        </Pool>
+        <MultiPool PoolType="XD" PoolDisplayStatus="CLOSED" Available="Y" Abandoned="N" JPotInGross="0.00" JPotOutGross="0.00" PoolTotal="2103.00">
+            <Dividend DivId="65785769" DivAmount="10.6000">
+                <DivResult RunnerNo="3" LegNo="1" RaceNo="1" />
+            </Dividend>
+        </MultiPool>
+        <ValidRace RaceNo="1" />
+        <Race RaceNo="1" RaceTime="2013-01-12T12:30:00" RaceName="BM 80 HANDICAP" Distance="2200" RaceDisplayStatus="PAYING" WeatherChanged="N" WeatherCond="1" WeatherDesc="Fine" TrackChanged="N" TrackCond="1" TrackDesc="Good">
+            <TipsterTip TipsterId="0" Tips="2">
+                <Tipster TipsterName="LATE MAIL" />
+            </TipsterTip>
+            <Pool PoolType="A2" Available="Y" Abandoned="N" PoolDisplayStatus="PAYING" PoolTotal="3027.00" JPotInGross="0.00" JPotOutGross="0.00" LastCalcTime="2013-01-12T12:28:55" CalcTime="2013-01-12T12:32:57" StatDiv="0">
+                <Dividend DivId="65691182" DivAmount="10.7000">
+                    <DivResult LegNo="1" RunnerNo="4" />
+                </Dividend>
+            </Pool>
+            <ResultPlace PlaceNo="1">
+                <Result RunnerNo="5" PoolType="PP" Ref50Pct="N" RefScratched="N" RefAbandon="N" RefNoWinner="N" NoPlacePool="N">
+                    <PoolResult PoolType="PP" Dividend="2.90" />
+                </Result>
+            </ResultPlace>
+            <FixedPriceSummary>
+                <FixedPrice SportId="8" LeagueId="102" MeetingId="1246" MainEventId="166449" SubEventId="1099597" Status="F" BetTypeName="Win" EnablePlaceBetting="1" />
+            </FixedPriceSummary>
+            <Runner RunnerNo="1" RunnerName="MAGNUM" Scratched="N" Rider="A PATTILLO" RiderChanged="N" Barrier="1" Handicap="0" Weight="57.5" LastResult="1x2" Rtng="100">
+                <WinOdds Odds="2.00" Lastodds="1.90" LastCalcTime="2013-01-19T13:26:43" CalcTime="2013-01-19T13:30:47" Short="N" />
+                <PlaceOdds Odds="1.20" Lastodds="1.10" Short="N" />
+                <FixedOdds OfferId="981252" RunnerNo="01" RaceNo="01" MeetingCode="QR" RaceDayDate="2013-01-19T00:00:00" WinOdds="2.2000" PlaceOdds="1.3000" RetailWinOdds="2.2000" RetailPlaceOdds="1.3000" OfferName="MAGNUM" Status="p" LateScratching="0" Deduction="0" PlaceDeduction="0">
+                    <Book BookStatus="F" SubEventId="1099597" />
+                </FixedOdds>
+            </Runner>
+            <Runner RunnerNo="1" RunnerName="MAGNUM" Scratched="N" Rider="A PATTILLO" RiderChanged="N" Barrier="1" Handicap="0" Weight="57.5" />
+            <SubFavCandidate RunnerNo="1" />
+            <Protest Protestor="1" Defendant="1" />
+            <Photo PlaceGetter="1" />
+        </Race>
+    </Meeting>
+</RaceDay>
