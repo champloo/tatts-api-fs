@@ -7,12 +7,15 @@ open FSharp.Data
 open Util
 
 module RacingInformation =
-    type RacedayFeed = XmlProvider<"schema/raceday.xml", EmbeddedResource="tatts-api-fs, tatts_api_fs.schema.raceday.xml">
-    type MeetingFeed = XmlProvider<"schema/meeting.xml", EmbeddedResource="tatts-api-fs, tatts_api_fs.schema.meeting.xml">
-    type RaceFeed = XmlProvider<"schema/race.xml", EmbeddedResource="tatts-api-fs, tatts_api_fs.schema.race.xml">
-    type ScratchingsFeed = XmlProvider<"schema/scratchings.xml", EmbeddedResource="tatts-api-fs, tatts_api_fs.schema.scratchings.xml">
-    type DoubleFeed = XmlProvider<"schema/double.xml", EmbeddedResource="tatts-api-fs, tatts_api_fs.schema.double.xml">
-    type FieldFeed = XmlProvider<"schema/field.xml", EmbeddedResource="tatts-api-fs, tatts_api_fs.schema.field.xml">
+    [<Literal>]
+    let schemaFolder = __SOURCE_DIRECTORY__ + "/schema/"
+
+    type RacedayFeed = XmlProvider<ResolutionFolder=schemaFolder, Schema="./raceday.xsd", EmbeddedResource="tatts-api-fs, tatts_api_fs.schema.raceday.xsd">
+    type MeetingFeed = XmlProvider<ResolutionFolder=schemaFolder, Schema="./meeting.xsd", EmbeddedResource="tatts-api-fs, tatts_api_fs.schema.meeting.xsd">
+    type RaceFeed = XmlProvider<ResolutionFolder=schemaFolder, Schema="./race.xsd", EmbeddedResource="tatts-api-fs, tatts_api_fs.schema.race.xsd">
+    type ScratchingsFeed = XmlProvider<ResolutionFolder=schemaFolder, Schema="./scratchings.xsd", EmbeddedResource="tatts-api-fs, tatts_api_fs.schema.scratchings.xsd">
+    type DoubleFeed = XmlProvider<ResolutionFolder=schemaFolder, Schema="./double.xsd", EmbeddedResource="tatts-api-fs, tatts_api_fs.schema.double.xsd">
+    type FieldFeed = XmlProvider<ResolutionFolder=schemaFolder, Schema="./field.xsd", EmbeddedResource="tatts-api-fs, tatts_api_fs.schema.field.xsd">
 
     let private buildUrl (date:DateTime) feedname =
         let baseUrl = "http://tatts.com/pagedata/racing/"

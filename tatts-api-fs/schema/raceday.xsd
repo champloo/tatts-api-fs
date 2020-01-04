@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" targetNamespace="urn:tatts" elementFormDefault="unqualified" xmlns="urn:tatts" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="common.xsd"/>
+
+  <xs:element name="RaceDay" type="RaceDayFeed"/>
+  <xs:complexType name="PresaleRaceDate">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:date" name="RaceDayDate" use="required"/>
+        <xs:attribute type="xs:short" name="Year" use="required"/>
+        <xs:attribute type="xs:int" name="Month" use="required"/>
+        <xs:attribute type="xs:int" name="Day" use="required"/>
+        <xs:attribute type="xs:string" name="DayOfTheWeek" use="required"/>
+        <xs:attribute type="xs:string" name="MonthLong" use="required"/>
+        <xs:attribute type="xs:int" name="IsCurrentDay" use="required"/>
+        <xs:attribute type="xs:int" name="IsPresaleMeeting" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="RDMultiLeg">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:int" name="LegNo" use="required"/>
+        <xs:attribute type="xs:int" name="RaceNo" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="RDPool">
+    <xs:sequence>
+      <xs:element type="RDMultiLeg" name="MultiLeg" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="PoolType" use="required"/>
+    <xs:attribute type="xs:string" name="Available" use="required"/>
+    <xs:attribute type="xs:decimal" name="JPotInGross" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="FixedOdds">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:int" name="HasFixedPrice" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="Race">
+    <xs:sequence>
+      <xs:element type="ResultPlace" name="ResultPlace" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element type="FixedOdds" name="FixedOdds"/>
+      <xs:element type="RDPool" name="Pool" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="RaceDisplayStatus" use="required"/>
+    <xs:attribute type="xs:int" name="RaceNo" use="required"/>
+    <xs:attribute type="xs:date" name="RaceTime" use="required"/>
+    <xs:attribute type="xs:date" name="CloseTime" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="Meeting">
+    <xs:sequence>
+      <xs:element type="RDPool" name="Pool" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element type="Race" name="Race" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="MeetingType" use="required"/>
+    <xs:attribute type="xs:string" name="Abandoned" use="required"/>
+    <xs:attribute type="xs:string" name="VenueName" use="required"/>
+    <xs:attribute type="xs:int" name="SortOrder" use="required"/>
+    <xs:attribute type="xs:int" name="HiRaceNo" use="required"/>
+    <xs:attribute type="xs:string" name="MeetingCode" use="required"/>
+    <xs:attribute type="xs:int" name="NextRaceNo" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="RaceDayFeed">
+    <xs:sequence>
+      <xs:element type="PresaleRaceDate" name="PresaleRaceDate" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element type="Meeting" name="Meeting" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute type="xs:date" name="RaceDayDate" use="required"/>
+    <xs:attribute type="xs:short" name="Year" use="required"/>
+    <xs:attribute type="xs:int" name="Month" use="required"/>
+    <xs:attribute type="xs:int" name="Day" use="required"/>
+    <xs:attribute type="xs:string" name="DayOfTheWeek" use="required"/>
+    <xs:attribute type="xs:string" name="MonthLong" use="required"/>
+    <xs:attribute type="xs:int" name="IsCurrentDay" use="required"/>
+    <xs:attribute type="xs:int" name="IsPresaleMeeting" use="required"/>
+    <xs:attribute type="xs:date" name="ServerTime" use="required"/>
+  </xs:complexType>
+</xs:schema>
