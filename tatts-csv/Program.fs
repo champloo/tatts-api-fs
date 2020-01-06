@@ -51,9 +51,9 @@ let main argv =
                         let race = RacingInformation.getRace date meeting.MeetingCode meetingRace.RaceNo
 
                         for runner in race.Meeting.Race.Runners do
-                            sprintf "%s,%s,%i,%i,%s,%M,%s,%s,%s,%i,%i,%s,%i" 
-                                (renameVenue (race.Meeting.VenueName))
+                            sprintf "%s,%s,%i,%i,%s,%M,%s,%s,%s,%i,%i,%s,%i,%M,%M,%M,%M" 
                                 (race.RaceDayDate.ToString("dd/MM/yyyy"))
+                                (renameVenue (race.Meeting.VenueName))
                                 race.Meeting.Race.RaceNo
                                 runner.RunnerNo
                                 runner.RunnerName
@@ -65,6 +65,10 @@ let main argv =
                                 runner.Handicap
                                 (Option.defaultValue "" runner.LastResult)
                                 (Option.defaultValue 0 runner.Rtng)
+                                (if runner.FixedOdds.IsNone then 0m else runner.FixedOdds.Value.WinOdds) 
+                                (if runner.FixedOdds.IsNone then 0m else runner.FixedOdds.Value.PlaceOdds) 
+                                (if runner.FixedOdds.IsNone then 0m else runner.FixedOdds.Value.RetailWinOdds) 
+                                (if runner.FixedOdds.IsNone then 0m else runner.FixedOdds.Value.RetailPlaceOdds) 
         }
     File.WriteAllLines(outputFile, writeSet)
 
