@@ -1,0 +1,35 @@
+<RaceDay RaceDayDate="2013-01-19T00:00:00" Year="2013" Month="1" Day="19" DayOfTheWeek="Saturday" MonthLong="January" IsCurrentDay="1" IsPresaleMeeting="0" ServerTime="2013-01-19T16:52:23.290">
+    <Meeting MeetingCode="QR" MtgId="653787904" VenueName="Gold Coast" MtgType="R" TrackDesc="Good" TrackCond="1" TrackRating="3" WeatherCond="1" WeatherDesc="Fine" MtgAbandoned="N">
+        <Pool PoolType="DD" PoolDisplayStatus="PAYING" Available="Y" Abandoned="N" JPotInGross="0.00" JPotOutGross="0.00" PoolTotal="4024.00">
+            <MultiLeg LegNo="1" RaceNo="5">
+                <DividendResult RunnerNo="3" DivAmount="125.90" DivId="65786378" />
+            </MultiLeg>
+        </Pool>
+        <MultiPool PoolType="DD" PoolDisplayStatus="PAYING" Available="Y" Abandoned="N" JPotInGross="0.00" JPotOutGross="0.00" PoolTotal="4024.00">
+            <Dividend DivId="65786378" DivAmount="125.9000">
+                <DivResult RunnerNo="3" LegNo="1" RaceNo="5" />
+            </Dividend>
+        </MultiPool>
+        <MultiLegPoolOdds PoolType="DD">
+            <OddsML Combination="1" RunnerNo="1" Odds="419430.3500" Shortening="0" LastLegOCF="6" LegWinner1="3" LegWinner2="0" LegWinner3="0" />
+        </MultiLegPoolOdds>
+        <Race RaceNo="1" Racetime="2013-01-19T13:25:00" Racename="CLASS 3 PLATE" Distance="2200" SubFav="1" RaceDisplayStatus="PAYING" WeatherCond="1" WeatherDesc="Fine" TrackCond="1" TrackDesc="Good">
+            <TipsterTip TipsterId="0" Tips="1" />
+            <Pool PoolType="EX" Available="Y" Abandoned="N" PoolDisplayStatus="PAYING" PoolTotal="2149.00" JPotInGross="0.00" JPotOutGross="0.00" LastCalcTime="2013-01-19T13:26:43" CalcTime="2013-01-19T13:30:47" StatDiv="0">
+                <Dividend DivId="65785625" DivAmount="13.7000">
+                    <DivResult LegNo="1" RunnerNo="3" />
+                </Dividend>
+            </Pool>
+            <ResultPlace PlaceNo="1">
+                <Result RunnerNo="3" PoolType="PP" Ref50Pct="N" RefScratched="N" RefAbandon="N" RefNoWinner="N" NoPlacePool="N">
+                    <PoolResult PoolType="PP" Dividend="2.00" />
+                </Result>
+            </ResultPlace>
+            <Runner RunnerNo="1" RunnerName="MAGNUM" Scratched="Y" ScratchStatus="3">
+                <WinOdds Odds="2.00" Lastodds="1.90" LastCalcTime="2013-01-19T13:26:43" CalcTime="2013-01-19T13:30:47" Short="N" />
+                <PlaceOdds Odds="1.20" Lastodds="1.10" Short="N" />
+            </Runner>
+            <SubFavCandidate RunnerNo="1" />
+        </Race>
+    </Meeting>
+</RaceDay>

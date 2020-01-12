@@ -1,0 +1,7 @@
+<RaceDay RaceDayDate="2013-01-19T00:00:00" Year="2013" Month="1" Day="19" DayOfTheWeek="Saturday" MonthLong="January" IsCurrentDay="1" IsPresaleMeeting="0" ServerTime="2013-01-20T00:55:36.030">
+    <Meeting MeetingCode="BR" MtgId="653787136" VenueName="Eagle Farm" MtgType="R" MtgAbandoned="N" WeatherChanged="N" WeatherCond="1" WeatherDesc="Fine" TrackChanged="N" TrackCond="1" TrackDesc="Good" TrackRating="3" SortOrder="0">
+        <Race RaceNo="2" Racetime="2013-01-19T13:00:00" Racename="NMW HANDICAP" RaceDisplayStatus="PAYING" WeatherChanged="N" WeatherCond="1" WeatherDesc="Fine" TrackChanged="N" TrackCond="1" TrackDesc="Good" TrackRating="3" ScratchingsFinal="Y">
+            <Runner RunnerNo="8" RunnerName="TY SEEKER" Scratched="Y" ScratchStatus="1" />
+        </Race>
+    </Meeting>
+</RaceDay>

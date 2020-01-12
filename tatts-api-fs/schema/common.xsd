@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" xmlns="urn:tatts" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<!--
+meetings
+fields
+double
+races
+-->
+  <xs:complexType name="MultiLeg">
+    <xs:sequence>
+      <xs:element type="DividendResult" name="DividendResult" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute type="xs:int" name="LegNo" use="required"/>
+    <xs:attribute type="xs:int" name="RaceNo" use="required"/>
+  </xs:complexType>
+<!--
+meetings
+fields
+double
+races
+-->
+  <xs:complexType name="Pool">
+    <xs:sequence>
+      <xs:element type="MultiLeg" name="MultiLeg" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element type="Dividend" name="Dividend" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="PoolType" use="required"/>
+    <xs:attribute type="xs:string" name="PoolDisplayStatus" use="required"/>
+    <xs:attribute type="xs:string" name="Available" use="required"/>
+    <xs:attribute type="xs:string" name="Abandoned" use="required"/>
+    <xs:attribute type="xs:decimal" name="JPotInGross" use="required"/>
+    <xs:attribute type="xs:decimal" name="JPotOutGross" use="required"/>
+    <xs:attribute type="xs:decimal" name="PoolTotal" use="required"/>
+    <xs:attribute type="xs:date" name="LastCalcTime" use="optional"/>
+    <xs:attribute type="xs:date" name="CalcTime" use="optional"/>
+    <xs:attribute type="xs:int" name="StatDiv" use="optional"/>
+  </xs:complexType>
+<!--
+raceday
+meetings
+fields
+double
+races
+-->
+  <xs:complexType name="PoolResult">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="PoolType" use="required"/>
+        <xs:attribute type="xs:decimal" name="Dividend" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+<!--
+raceday
+meetings
+fields
+double
+races
+-->
+  <xs:complexType name="Result">
+    <xs:sequence>
+      <xs:element type="PoolResult" name="PoolResult"/>
+    </xs:sequence>
+    <xs:attribute type="xs:int" name="RunnerNo" use="required"/>
+    <xs:attribute type="xs:string" name="PoolType" use="required"/>
+    <xs:attribute type="xs:string" name="Ref50Pct" use="required"/>
+    <xs:attribute type="xs:string" name="RefScratched" use="required"/>
+    <xs:attribute type="xs:string" name="RefAbandon" use="required"/>
+    <xs:attribute type="xs:string" name="RefNoWinner" use="required"/>
+    <xs:attribute type="xs:string" name="NoPlacePool" use="required"/>
+  </xs:complexType>
+<!--
+raceday
+meetings
+fields
+double
+races
+-->
+  <xs:complexType name="ResultPlace">
+    <xs:sequence>
+      <xs:element type="Result" name="Result" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute type="xs:int" name="PlaceNo" use="required"/>
+  </xs:complexType>
+<!--
+meetings
+fields
+double
+races
+-->
+  <xs:complexType name="DividendResult">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:int" name="RunnerNo" use="optional"/>
+        <xs:attribute type="xs:decimal" name="DivAmount" use="optional"/>
+        <xs:attribute type="xs:int" name="DivId" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+<!--
+meetings
+fields (has no RaceNo)
+double
+races
+-->
+  <xs:complexType name="DivResult">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:int" name="RunnerNo" use="required"/>
+        <xs:attribute type="xs:int" name="LegNo" use="required"/>
+        <xs:attribute type="xs:int" name="RaceNo" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+<!--
+meetings
+fields
+double
+races
+-->
+  <xs:complexType name="Dividend">
+    <xs:sequence>
+      <xs:element type="DivResult" name="DivResult" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute type="xs:int" name="DivId" use="required"/>
+    <xs:attribute type="xs:decimal" name="DivAmount" use="required"/>
+  </xs:complexType>
+<!--
+meetings
+double
+races
+-->
+  <xs:complexType name="MultiPool">
+    <xs:sequence>
+      <xs:element type="Dividend" name="Dividend" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="PoolType" use="required"/>
+    <xs:attribute type="xs:string" name="PoolDisplayStatus" use="required"/>
+    <xs:attribute type="xs:string" name="Available" use="required"/>
+    <xs:attribute type="xs:string" name="Abandoned" use="required"/>
+    <xs:attribute type="xs:decimal" name="JPotInGross" use="required"/>
+    <xs:attribute type="xs:decimal" name="JPotOutGross" use="required"/>
+    <xs:attribute type="xs:decimal" name="PoolTotal" use="required"/>
+  </xs:complexType>
+<!--
+meetings
+fields
+double
+-->
+  <xs:complexType name="TipsterTip">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:int" name="TipsterId" use="required"/>
+        <xs:attribute type="xs:string" name="Tips" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+<!--
+meetings
+fields
+-->
+  <xs:complexType name="Tipster">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:int" name="TipsterId" use="required"/>
+        <xs:attribute type="xs:string" name="TipsterName" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+<!--
+fields
+double
+races
+-->
+  <xs:complexType name="WinOdds">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:decimal" name="Odds" use="required"/>
+        <xs:attribute type="xs:decimal" name="Lastodds" use="required"/>
+        <xs:attribute type="xs:date" name="LastCalcTime" use="required"/>
+        <xs:attribute type="xs:date" name="CalcTime" use="required"/>
+        <xs:attribute type="xs:string" name="Short" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+<!--
+double
+races
+-->
+  <xs:complexType name="PlaceOdds">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:decimal" name="Odds" use="required"/>
+        <xs:attribute type="xs:decimal" name="Lastodds" use="required"/>
+        <xs:attribute type="xs:string" name="Short" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+<!--
+double
+races
+-->
+  <xs:complexType name="SubFavCandidate">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:int" name="RunnerNo" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+<!--
+meetings
+fields
+races
+doubles
+-->
+  <xs:complexType name="Protest">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:int" name="Protestor" use="required"/>
+        <xs:attribute type="xs:int" name="Defendant" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+<!--
+meetings
+fields
+races
+doubles
+-->
+  <xs:complexType name="Photo">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:int" name="PlaceGetter" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+</xs:schema>

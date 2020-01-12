@@ -50,18 +50,18 @@ let main argv =
                     for meetingRace in meeting.Races do
                         let race = RacingInformation.getRace date meeting.MeetingCode meetingRace.RaceNo
 
-                        for runner in race.Meeting.Race.Runners do
+                        for runner in race.Meeting.Races.[0].Runners do
                             sprintf "%s,%s,%i,%i,%s,%M,%s,%s,%s,%i,%i,%s,%i,%M,%M,%M,%M" 
                                 (race.RaceDayDate.ToString("dd/MM/yyyy"))
                                 (renameVenue (race.Meeting.VenueName))
-                                race.Meeting.Race.RaceNo
+                                race.Meeting.Races.[0].RaceNo
                                 runner.RunnerNo
                                 runner.RunnerName
-                                runner.Weight
+                                (Option.defaultValue 0m runner.Weight)
                                 runner.Scratched
-                                runner.Rider
+                                (Option.defaultValue "" runner.Rider)
                                 runner.RiderChanged
-                                runner.Barrier
+                                (Option.defaultValue 0 runner.Barrier)
                                 runner.Handicap
                                 (Option.defaultValue "" runner.LastResult)
                                 (Option.defaultValue 0 runner.Rtng)

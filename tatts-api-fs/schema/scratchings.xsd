@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" targetNamespace="urn:tatts" elementFormDefault="unqualified" xmlns="urn:tatts" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="RaceDay" type="ScratchingsFeed"/>
+  <xs:complexType name="CurrentRaceDate">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:short" name="Year" use="required"/>
+        <xs:attribute type="xs:byte" name="Month" use="required"/>
+        <xs:attribute type="xs:byte" name="Day" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="PresaleRaceDate">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:short" name="Year" use="required"/>
+        <xs:attribute type="xs:byte" name="Month" use="required"/>
+        <xs:attribute type="xs:byte" name="Day" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="Runner">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:byte" name="RunnerNo" use="required"/>
+        <xs:attribute type="xs:string" name="RunnerName" use="required"/>
+        <xs:attribute type="xs:string" name="Scratched" use="required"/>
+        <xs:attribute type="xs:byte" name="ScratchStatus" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="Race">
+    <xs:sequence>
+      <xs:element type="Runner" name="Runner" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute type="xs:byte" name="RaceNo" use="required"/>
+    <xs:attribute type="xs:dateTime" name="Racetime" use="required"/>
+    <xs:attribute type="xs:string" name="Racename" use="required"/>
+    <xs:attribute type="xs:string" name="RaceDisplayStatus" use="required"/>
+    <xs:attribute type="xs:string" name="WeatherChanged" use="required"/>
+    <xs:attribute type="xs:byte" name="WeatherCond" use="required"/>
+    <xs:attribute type="xs:string" name="WeatherDesc" use="optional"/>
+    <xs:attribute type="xs:string" name="TrackChanged" use="required"/>
+    <xs:attribute type="xs:byte" name="TrackCond" use="required"/>
+    <xs:attribute type="xs:string" name="TrackDesc" use="optional"/>
+    <xs:attribute type="xs:byte" name="TrackRating" use="required"/>
+    <xs:attribute type="xs:string" name="ScratchingsFinal" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="Meeting">
+    <xs:sequence>
+      <xs:element type="Race" name="Race" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="MeetingCode" use="required"/>
+    <xs:attribute type="xs:int" name="MtgId" use="required"/>
+    <xs:attribute type="xs:string" name="VenueName" use="required"/>
+    <xs:attribute type="xs:string" name="MtgType" use="required"/>
+    <xs:attribute type="xs:string" name="MtgAbandoned" use="required"/>
+    <xs:attribute type="xs:string" name="WeatherChanged" use="required"/>
+    <xs:attribute type="xs:byte" name="WeatherCond" use="optional"/>
+    <xs:attribute type="xs:string" name="WeatherDesc" use="optional"/>
+    <xs:attribute type="xs:string" name="TrackChanged" use="required"/>
+    <xs:attribute type="xs:byte" name="TrackCond" use="optional"/>
+    <xs:attribute type="xs:string" name="TrackDesc" use="optional"/>
+    <xs:attribute type="xs:byte" name="TrackRating" use="optional"/>
+    <xs:attribute type="xs:byte" name="SortOrder" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="ScratchingsFeed">
+    <xs:sequence>
+      <xs:element type="CurrentRaceDate" name="CurrentRaceDate"/>
+      <xs:element type="PresaleRaceDate" name="PresaleRaceDate" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element type="Meeting" name="Meeting" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute type="xs:dateTime" name="RaceDayDate" use="required"/>
+    <xs:attribute type="xs:short" name="Year" use="required"/>
+    <xs:attribute type="xs:byte" name="Month" use="required"/>
+    <xs:attribute type="xs:byte" name="Day" use="required"/>
+    <xs:attribute type="xs:string" name="DayOfTheWeek" use="required"/>
+    <xs:attribute type="xs:string" name="MonthLong" use="required"/>
+    <xs:attribute type="xs:byte" name="IsCurrentDay" use="required"/>
+    <xs:attribute type="xs:byte" name="IsPresaleMeeting" use="required"/>
+    <xs:attribute type="xs:dateTime" name="ServerTime" use="required"/>
+  </xs:complexType>
+</xs:schema>
